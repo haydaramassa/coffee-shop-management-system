@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="printableRoot"
+            prefHeight="470.0"
+            prefWidth="560.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.cafe.cafedesktop.ReceiptController"
+            style="-fx-background-color: #f7f7f7;">
+
+    <children>
+        <VBox layoutX="10.0" layoutY="10.0"
+              prefWidth="540.0"
+              spacing="7.0"
+              style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #dcdcdc; -fx-padding: 10;">
+            <children>
+
+                <VBox spacing="2.0" style="-fx-alignment: center;">
+                    <children>
+                        <Label fx:id="cafeNameLabel"
+                               text="Cafe Shop Management System"
+                               style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0f6789;" />
+                        <Label text="Sales Receipt"
+                               style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #15915c;" />
+                        <Label text="Thank you for your visit"
+                               style="-fx-font-size: 9px; -fx-text-fill: #777777;" />
+                    </children>
+                </VBox>
+
+                <Separator />
+
+                <HBox spacing="14.0">
+                    <children>
+                        <VBox spacing="4.0" prefWidth="250.0">
+                            <children>
+                                <HBox spacing="5.0">
+                                    <children>
+                                        <Label text="Order ID:" style="-fx-font-size: 11px; -fx-font-weight: bold;" />
+                                        <Label fx:id="orderIdLabel" text="-" style="-fx-font-size: 11px;" />
+                                    </children>
+                                </HBox>
+
+                                <HBox spacing="5.0">
+                                    <children>
+                                        <Label text="Customer:" style="-fx-font-size: 11px; -fx-font-weight: bold;" />
+                                        <Label fx:id="customerLabel" text="Walk-in Customer" style="-fx-font-size: 11px;" />
+                                    </children>
+                                </HBox>
+
+                                <HBox spacing="5.0">
+                                    <children>
+                                        <Label text="Cashier:" style="-fx-font-size: 11px; -fx-font-weight: bold;" />
+                                        <Label fx:id="cashierLabel" text="-" style="-fx-font-size: 11px;" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="4.0" prefWidth="220.0">
+                            <children>
+                                <HBox spacing="5.0">
+                                    <children>
+                                        <Label text="Date:" style="-fx-font-size: 11px; -fx-font-weight: bold;" />
+                                        <Label fx:id="dateLabel" text="-" style="-fx-font-size: 11px;" />
+                                    </children>
+                                </HBox>
+
+                                <HBox spacing="5.0">
+                                    <children>
+                                        <Label text="Time:" style="-fx-font-size: 11px; -fx-font-weight: bold;" />
+                                        <Label fx:id="timeLabel" text="-" style="-fx-font-size: 11px;" />
+                                    </children>
+                                </HBox>
+
+                                <HBox spacing="5.0">
+                                    <children>
+                                        <Label text="Status:" style="-fx-font-size: 11px; -fx-font-weight: bold;" />
+                                        <Label text="PAID" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #15915c;" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <Separator />
+
+                <TableView fx:id="receiptTable"
+                           prefHeight="155.0"
+                           prefWidth="520.0"
+                           fixedCellSize="26.0"
+                           style="-fx-background-color: white; -fx-border-color: #d9d9d9; -fx-table-cell-border-color: #ececec; -fx-font-size: 10px;">
+                    <columns>
+                        <TableColumn fx:id="colProductName" text="Product" prefWidth="190.0" />
+                        <TableColumn fx:id="colQuantity" text="Qty" prefWidth="55.0" />
+                        <TableColumn fx:id="colUnitPrice" text="Unit Price" prefWidth="115.0" />
+                        <TableColumn fx:id="colLineTotal" text="Line Total" prefWidth="150.0" />
+                    </columns>
+                </TableView>
+
+                <Separator />
+
+                <HBox spacing="10.0">
+                    <children>
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <VBox spacing="5.0" prefWidth="200.0">
+                            <children>
+                                <HBox spacing="8.0" style="-fx-alignment: center-right;">
+                                    <children>
+                                        <Label text="Total:" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                        <Label fx:id="totalLabel" text="0.0$" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                    </children>
+                                </HBox>
+
+                                <HBox spacing="8.0" style="-fx-alignment: center-right;">
+                                    <children>
+                                        <Label text="Paid:" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                        <Label fx:id="paidLabel" text="0.0$" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                    </children>
+                                </HBox>
+
+                                <HBox spacing="8.0" style="-fx-alignment: center-right;">
+                                    <children>
+                                        <Label text="Change:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #15915c;" />
+                                        <Label fx:id="changeLabel" text="0.0$" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #15915c;" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <Separator />
+
+                <VBox spacing="2.0" style="-fx-alignment: center;">
+                    <children>
+                        <Label text="Thank you and see you again!"
+                               style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #444444;" />
+                        <Label text="Printed by Cafe Desktop POS"
+                               style="-fx-font-size: 8px; -fx-text-fill: #888888;" />
+                    </children>
+                </VBox>
+
+                <HBox spacing="10.0" style="-fx-alignment: center-right;">
+                    <children>
+                        <Button fx:id="printButton"
+                                text="Print Receipt"
+                                onAction="#printReceipt"
+                                prefWidth="130.0"
+                                prefHeight="32.0"
+                                style="-fx-background-color: #15915c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;" />
+                    </children>
+                </HBox>
+
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

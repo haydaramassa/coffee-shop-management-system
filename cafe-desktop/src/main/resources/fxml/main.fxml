@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.cafe.cafedesktop.MainController">
+
+    <top>
+        <VBox spacing="8.0" style="-fx-background-color: linear-gradient(to bottom right, #0f6789, #286155);">
+            <padding>
+                <Insets top="20" right="25" bottom="20" left="25"/>
+            </padding>
+            <Label fx:id="welcomeLabel" text="Welcome"
+                   style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+            <Label text="Cafe Dashboard"
+                   style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="20.0" alignment="CENTER">
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+
+            <Label fx:id="usersCountLabel" text="Total Users: 0" style="-fx-font-size: 20px;"/>
+            <Label fx:id="categoriesCountLabel" text="Total Categories: 0" style="-fx-font-size: 20px;"/>
+            <Label fx:id="productsCountLabel" text="Total Products: 0" style="-fx-font-size: 20px;"/>
+            <Label fx:id="customersCountLabel" text="Total Customers: 0" style="-fx-font-size: 20px;"/>
+            <Label fx:id="ordersCountLabel" text="Total Orders: 0" style="-fx-font-size: 20px;"/>
+            <Label fx:id="salesLabel" text="Total Sales: 0" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+        </VBox>
+    </center>
+
+</BorderPane>

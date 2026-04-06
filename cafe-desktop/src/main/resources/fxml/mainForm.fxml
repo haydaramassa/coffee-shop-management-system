@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cafe.cafedesktop.MainController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="720.0" prefWidth="1280.0">
+         <children>
+            <BorderPane prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane fx:id="side_form" prefHeight="820.0" prefWidth="220.0" styleClass="nav-Form" stylesheets="@../styles/mainform.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane prefHeight="34.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutY="-29.0" prefHeight="110.0" prefWidth="200.0" styleClass="header" stylesheets="@../styles/mainform.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="9.0" layoutY="46.0" text="Cafe Shop Management System" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+
+                        <Label layoutX="14.0" layoutY="116.0" text="Welcome ," textFill="#fafafa">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+
+                        <Label fx:id="username" layoutX="14.0" layoutY="142.0" prefWidth="190.0" maxWidth="190.0" text="username" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+
+                        <Button fx:id="dashboard_btn" layoutX="5.0" layoutY="178.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-Btn" stylesheets="@../styles/mainform.css" text="DASHBOARD" />
+                        <Button fx:id="inventory_btn" layoutX="5.0" layoutY="227.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-Btn" stylesheets="@../styles/mainform.css" text="INVENTORY" />
+                        <Button fx:id="menu_btn" layoutX="5.0" layoutY="276.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-Btn" stylesheets="@../styles/mainform.css" text="MENU" />
+                        <Button fx:id="customers_btn" layoutX="5.0" layoutY="325.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-Btn" stylesheets="@../styles/mainform.css" text="CUSTOMERS" />
+                        <Button fx:id="users_btn" layoutX="5.0" layoutY="374.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-Btn" stylesheets="@../styles/mainform.css" text="USERS" visible="false" managed="false" />
+
+                        <Button layoutX="7.0" layoutY="780.0" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="27.0" stylesheets="@../styles/mainform.css" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="7.0">
+                           <graphic>
+                              <FontAwesomeIconView fx:id="logout_btn" glyphName="SIGN_OUT" size="20" />
+                           </graphic>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="logout" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </Button>
+
+                        <Label layoutX="46.0" layoutY="780.0" prefHeight="32.0" prefWidth="90.0" text="SIGN OUT" textFill="#fafafa" AnchorPane.bottomAnchor="14.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </left>
+
+               <center>
+                  <AnchorPane prefHeight="820.0" prefWidth="880.0" BorderPane.alignment="CENTER">
+                     <children>
+
+                        <AnchorPane fx:id="dashboard_form" prefHeight="820.0" prefWidth="880.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="169.0" prefWidth="851.0" stylesheets="@../styles/mainform.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                 <styleClass>
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <ScrollPane prefHeight="200.0" prefWidth="851.0" styleClass="transparent" stylesheets="@../styles/mainform.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <AnchorPane prefHeight="153.0" prefWidth="1100.0">
+                                             <children>
+                                                <AnchorPane layoutX="12.0" layoutY="12.0" prefHeight="128.0" prefWidth="220.0" styleClass="nav-Form" stylesheets="@../styles/mainform.css">
+                                                   <children>
+                                                      <FontAwesomeIconView fill="WHITE" glyphName="USERS" layoutX="13.0" layoutY="88.0" size="70" />
+                                                      <Label layoutX="88.0" layoutY="98.0" text="Number of Customers" textFill="#efefef" />
+                                                      <Label fx:id="dashboard_NC" alignment="CENTER_RIGHT" layoutX="91.0" layoutY="18.0" prefHeight="18.0" prefWidth="111.0" text="0" textFill="WHITE" />
+                                                   </children>
+                                                </AnchorPane>
+
+                                                <AnchorPane layoutX="244.0" layoutY="13.0" prefHeight="128.0" prefWidth="220.0" styleClass="nav-Form" stylesheets="@../styles/mainform.css">
+                                                   <children>
+                                                      <FontAwesomeIconView fill="WHITE" glyphName="DOLLAR" layoutX="13.0" layoutY="88.0" size="70" />
+                                                      <Label layoutX="88.0" layoutY="98.0" text="Today's Income" textFill="#efefef" />
+                                                      <Label fx:id="dashboard_TI" alignment="CENTER_RIGHT" layoutX="91.0" layoutY="18.0" prefHeight="18.0" prefWidth="111.0" text="0.0$" textFill="WHITE" />
+                                                   </children>
+                                                </AnchorPane>
+
+                                                <AnchorPane layoutX="477.0" layoutY="13.0" prefHeight="128.0" prefWidth="220.0" styleClass="nav-Form" stylesheets="@../styles/mainform.css">
+                                                   <children>
+                                                      <FontAwesomeIconView fill="WHITE" glyphName="MONEY" layoutX="13.0" layoutY="88.0" size="70" />
+                                                      <Label layoutX="120.0" layoutY="98.0" text="Total Income" textFill="#efefef" />
+                                                      <Label fx:id="dashboard_TotalI" alignment="CENTER_RIGHT" layoutX="91.0" layoutY="18.0" prefHeight="18.0" prefWidth="111.0" text="0.0$" textFill="WHITE" />
+                                                   </children>
+                                                </AnchorPane>
+
+                                                <AnchorPane layoutX="709.0" layoutY="14.0" prefHeight="128.0" prefWidth="220.0" styleClass="nav-Form" stylesheets="@../styles/mainform.css">
+                                                   <children>
+                                                      <FontAwesomeIconView fill="WHITE" glyphName="SHOPPING_CART" layoutX="13.0" layoutY="88.0" size="70" />
+                                                      <Label layoutX="88.0" layoutY="98.0" text="Number of Sold Products" textFill="#efefef" />
+                                                      <Label fx:id="dashboard_NSP" alignment="CENTER_RIGHT" layoutX="91.0" layoutY="18.0" prefHeight="18.0" prefWidth="111.0" text="0" textFill="WHITE" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+
+                              <AnchorPane layoutX="15.0" layoutY="212.0" prefHeight="574.0" prefWidth="851.0" stylesheets="@../styles/mainform.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="212.0">
+                                 <styleClass>
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="15.0" layoutY="18.0" prefHeight="470.0" prefWidth="387.0" stylesheets="@../styles/mainform.css" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="449.0" AnchorPane.topAnchor="18.0">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                       <children>
+                                          <AreaChart fx:id="dashboard_IncomeChart" prefHeight="470.0" prefWidth="387.0" title="Income's Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" />
+                                             </yAxis>
+                                          </AreaChart>
+                                       </children>
+                                    </AnchorPane>
+
+                                    <AnchorPane layoutX="437.0" layoutY="18.0" prefHeight="470.0" prefWidth="399.0" stylesheets="@../styles/mainform.css" AnchorPane.bottomAnchor="63.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="18.0">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                       <children>
+                                          <BarChart fx:id="dashboard_CustomerChart" prefHeight="470.0" prefWidth="399.0" title="Customers' Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" />
+                                             </yAxis>
+                                          </BarChart>
+                                       </children>
+                                    </AnchorPane>
+
+                                    <Button fx:id="reset_btn" layoutX="15.0" layoutY="525.0" mnemonicParsing="false" onAction="#monthlyReset" prefHeight="34.0" prefWidth="151.0" styleClass="btn" stylesheets="@../styles/loginDesign.css" text="Reset / Close Period" AnchorPane.bottomAnchor="12.0" />
+                                    <Button fx:id="archive_Btn" layoutX="194.0" layoutY="525.0" mnemonicParsing="false" onAction="#openArchiveForm" prefHeight="34.0" prefWidth="192.0" styleClass="btn" stylesheets="@../styles/loginDesign.css" text="Receipts Archive / History" AnchorPane.bottomAnchor="12.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+
+                        <AnchorPane fx:id="inventory_form" prefHeight="820.0" prefWidth="880.0" visible="false"
+                                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="250.0" prefWidth="849.0"
+                                          stylesheets="@../styles/mainform.css"
+                                          AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="18.0" layoutY="14.0" text="Add Products">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="870.0" layoutY="18.0" text="Search:" />
+                                    <TextField fx:id="inventory_search" layoutX="920.0" layoutY="14.0"
+                                               prefHeight="26.0" prefWidth="166.0"
+                                               promptText="Search product name..."
+                                               onKeyReleased="#inventorySearchChanged" />
+
+                                    <TableView fx:id="inventory_tableView" layoutX="12.0" layoutY="50.0"
+                                               onMouseClicked="#inventorySelectData"
+                                               prefHeight="186.0" prefWidth="829.0"
+                                               stylesheets="@../styles/mainform.css"
+                                               tableMenuButtonVisible="true"
+                                               AnchorPane.bottomAnchor="16.0"
+                                               AnchorPane.leftAnchor="18.0"
+                                               AnchorPane.rightAnchor="17.0"
+                                               AnchorPane.topAnchor="50.0">
+                                       <columns>
+                                          <TableColumn fx:id="inventory_col_productID" prefWidth="91.2" text="Product ID" />
+                                          <TableColumn fx:id="inventory_col_productName" prefWidth="104.0" text="Product Name" />
+                                          <TableColumn fx:id="inventory_col_type" prefWidth="123.2" text="Type" />
+                                          <TableColumn fx:id="inventory_col_stock" prefWidth="71.2" text="Stock" />
+                                          <TableColumn fx:id="inventory_col_price" prefWidth="83.2" text="Price" />
+                                          <TableColumn fx:id="inventory_col_status" prefWidth="99.2" text="Status" />
+                                          <TableColumn fx:id="inventory_col_date" prefWidth="99.2" text="Date" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+
+                              <AnchorPane layoutX="15.0" layoutY="282.0" prefHeight="185.0" prefWidth="850.0"
+                                          stylesheets="@../styles/mainform.css"
+                                          AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="282.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="34.0" layoutY="28.0" text="Product ID:" />
+                                    <TextField fx:id="inventory_productID" layoutX="112.0" layoutY="24.0" prefHeight="26.0" prefWidth="188.0" />
+
+                                    <Label layoutX="14.0" layoutY="61.0" text="Product Name:" />
+                                    <TextField fx:id="inventory_productName" layoutX="112.0" layoutY="57.0" prefHeight="26.0" prefWidth="188.0" />
+
+                                    <Label layoutX="66.0" layoutY="94.0" text="Type:" />
+                                    <ComboBox fx:id="inventory_type" layoutX="112.0" layoutY="91.0" prefHeight="26.0" prefWidth="190.0" promptText="Choose a Type ..." />
+
+                                    <Label layoutX="369.0" layoutY="28.0" text="Stock:" />
+                                    <TextField fx:id="inventory_stock" layoutX="426.0" layoutY="24.0" prefHeight="26.0" prefWidth="188.0" promptText="0" />
+
+                                    <Label layoutX="356.0" layoutY="61.0" text="Price ($):" />
+                                    <TextField fx:id="inventory_price" layoutX="426.0" layoutY="57.0" prefHeight="26.0" prefWidth="188.0" promptText="0.0$" />
+
+                                    <Label layoutX="365.0" layoutY="94.0" text="Status:" />
+                                    <ComboBox fx:id="inventory_status" layoutX="426.0" layoutY="91.0" prefHeight="26.0" prefWidth="190.0" promptText="Auto" />
+
+                                    <AnchorPane layoutX="711.0" layoutY="18.0" prefHeight="100.0" prefWidth="120.0"
+                                                stylesheets="@../styles/mainform.css"
+                                                AnchorPane.rightAnchor="29.0">
+                                       <styleClass>
+                                          <String fx:value="radius" />
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <ImageView fx:id="inventory_imageView" fitHeight="96.0" fitWidth="120.0"
+                                                     layoutX="0.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+
+                                    <Button fx:id="inventory_importBtn" layoutX="711.0" layoutY="132.0"
+                                            mnemonicParsing="false" onAction="#inventoryImportBtn"
+                                            prefHeight="32.0" prefWidth="106.0"
+                                            styleClass="btn" stylesheets="@../styles/mainform.css"
+                                            text="Import" AnchorPane.rightAnchor="33.8" />
+
+                                    <Button fx:id="inventory_addBtn" layoutX="112.0" layoutY="132.0"
+                                            mnemonicParsing="false" onAction="#inventoryAddBtn"
+                                            prefHeight="34.0" prefWidth="112.0"
+                                            styleClass="btn" stylesheets="@../styles/mainform.css"
+                                            text="Add" />
+
+                                    <Button fx:id="inventory_updateBtn" layoutX="244.0" layoutY="132.0"
+                                            mnemonicParsing="false" onAction="#inventoryUpdateBtn"
+                                            prefHeight="34.0" prefWidth="112.0"
+                                            styleClass="btn" stylesheets="@../styles/mainform.css"
+                                            text="Update" />
+
+                                    <Button fx:id="inventory_clearBtn" layoutX="375.0" layoutY="132.0"
+                                            mnemonicParsing="false" onAction="#inventoryClearBtn"
+                                            prefHeight="34.0" prefWidth="112.0"
+                                            styleClass="btn" stylesheets="@../styles/mainform.css"
+                                            text="Clear" />
+
+                                    <Button fx:id="inventory_deleteBtn" layoutX="507.0" layoutY="132.0"
+                                            mnemonicParsing="false" onAction="#inventoryDeleteBtn"
+                                            prefHeight="34.0" prefWidth="112.0"
+                                            styleClass="btn" stylesheets="@../styles/mainform.css"
+                                            text="Delete" />
+                                 </children>
+                              </AnchorPane>
+
+                              <AnchorPane layoutX="15.0" layoutY="475.0"
+                                          prefHeight="280.0" prefWidth="850.0"
+                                          stylesheets="@../styles/mainform.css"
+                                          AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0"
+                                          AnchorPane.topAnchor="485.0" AnchorPane.bottomAnchor="14.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+
+                                 <children>
+                                    <Label layoutX="18.0" layoutY="14.0" text="Categories">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+
+                                    <Label layoutX="870.0" layoutY="18.0" text="Search:" />
+                                    <TextField fx:id="category_search"
+                                               layoutX="920.0" layoutY="14.0"
+                                               prefHeight="28.0" prefWidth="160.0"
+                                               promptText="Search category..." />
+
+                                    <TableView fx:id="categories_tableView"
+                                               layoutX="18.0" layoutY="52.0"
+                                               onMouseClicked="#categorySelectData"
+                                               prefHeight="140.0" prefWidth="807.0"
+                                               tableMenuButtonVisible="true"
+                                               AnchorPane.leftAnchor="18.0"
+                                               AnchorPane.rightAnchor="18.0"
+                                               AnchorPane.topAnchor="52.0">
+                                       <columns>
+                                          <TableColumn fx:id="categories_col_id" prefWidth="80.0" text="ID" />
+                                          <TableColumn fx:id="categories_col_name" prefWidth="220.0" text="Name" />
+                                          <TableColumn fx:id="categories_col_description" prefWidth="270.0" text="Description" />
+                                          <TableColumn fx:id="categories_col_createdAt" prefWidth="220.0" text="Created At" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+
+                                    <Label layoutX="18.0" layoutY="202.0" text="ID:" />
+                                    <TextField fx:id="category_id"
+                                               layoutX="48.0" layoutY="198.0"
+                                               prefHeight="28.0" prefWidth="90.0" />
+
+                                    <Label layoutX="155.0" layoutY="202.0" text="Name:" />
+                                    <TextField fx:id="category_name"
+                                               layoutX="200.0" layoutY="198.0"
+                                               prefHeight="28.0" prefWidth="180.0" />
+
+                                    <Label layoutX="398.0" layoutY="202.0" text="Description:" />
+                                    <TextField fx:id="category_description"
+                                               layoutX="482.0" layoutY="198.0"
+                                               prefHeight="28.0" prefWidth="220.0" />
+
+                                    <Button fx:id="category_addBtn" layoutX="112.0" layoutY="234.0"
+                                            mnemonicParsing="false" onAction="#categoryAddBtn"
+                                            prefHeight="34.0" prefWidth="112.0"
+                                            styleClass="btn" stylesheets="@../styles/mainform.css"
+                                            text="Add" />
+
+                                    <Button fx:id="category_updateBtn" layoutX="244.0" layoutY="234.0"
+                                            mnemonicParsing="false" onAction="#categoryUpdateBtn"
+                                            prefHeight="34.0" prefWidth="112.0"
+                                            styleClass="btn" stylesheets="@../styles/mainform.css"
+                                            text="Update" />
+
+                                    <Button fx:id="category_deleteBtn" layoutX="375.0" layoutY="234.0"
+                                            mnemonicParsing="false" onAction="#categoryDeleteBtn"
+                                            prefHeight="34.0" prefWidth="112.0"
+                                            styleClass="btn" stylesheets="@../styles/mainform.css"
+                                            text="Delete" />
+
+                                    <Button fx:id="category_clearBtn" layoutX="507.0" layoutY="234.0"
+                                            mnemonicParsing="false" onAction="#categoryClearBtn"
+                                            prefHeight="34.0" prefWidth="112.0"
+                                            styleClass="btn" stylesheets="@../styles/mainform.css"
+                                            text="Clear" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="menu_form" prefHeight="720.0" prefWidth="880.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="15.0" stylesheets="@../styles/mainform.css" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="15.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="314.0">
+                                 <styleClass>
+                                    <String fx:value="radius" />
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <ScrollPane fx:id="menu_scrollPane" fitToWidth="true" pannable="true" hbarPolicy="NEVER" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
+                                       <content>
+                                          <FlowPane fx:id="menu_gridPane" hgap="15.0" vgap="15.0" prefWrapLength="720.0">
+                                             <padding>
+                                                <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+                                             </padding>
+                                          </FlowPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+
+                              <AnchorPane layoutX="585.0" layoutY="15.0" prefWidth="286.0" prefHeight="520.0" stylesheets="@../styles/mainform.css" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0">
+                                 <styleClass>
+                                    <String fx:value="radius" />
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <VBox spacing="12.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
+                                       <TableView fx:id="menu_tableView" onMouseClicked="#menuSelectOrder" prefHeight="250.0" VBox.vgrow="ALWAYS" stylesheets="@../styles/mainform.css">
+                                          <columns>
+                                             <TableColumn fx:id="menu_col_productName" prefWidth="120.0" text="Product Name" />
+                                             <TableColumn fx:id="menu_col_quantity" prefWidth="70.0" text="Quantity" />
+                                             <TableColumn fx:id="menu_col_price" prefWidth="80.0" text="Price ($)" />
+                                          </columns>
+                                       </TableView>
+
+                                       <HBox alignment="CENTER_RIGHT" spacing="8.0">
+                                          <children>
+                                             <Label text="Customer :" />
+                                             <ComboBox fx:id="menu_customerComboBox" prefWidth="175.0" promptText="Walk-in Customer" />
+                                          </children>
+                                       </HBox>
+
+                                       <HBox alignment="CENTER_RIGHT" spacing="8.0">
+                                          <children>
+                                             <Label text="Total :" />
+                                             <Label fx:id="menu_total" prefWidth="80.0" text="0.0$" />
+                                          </children>
+                                       </HBox>
+
+                                       <HBox alignment="CENTER_RIGHT" spacing="8.0">
+                                          <children>
+                                             <Label text="Amount :" />
+                                             <TextField fx:id="menu_amount" onAction="#menuAmount" prefWidth="120.0" promptText="0.0$" />
+                                          </children>
+                                       </HBox>
+
+                                       <HBox alignment="CENTER_RIGHT" spacing="8.0">
+                                          <children>
+                                             <Label text="Change :" />
+                                             <Label fx:id="menu_change" prefWidth="80.0" text="0.0$" />
+                                          </children>
+                                       </HBox>
+
+                                       <Region VBox.vgrow="ALWAYS" />
+
+                                       <Button fx:id="menu_payBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuPayBtn" prefHeight="42.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Pay" />
+
+                                       <HBox spacing="12.0">
+                                          <children>
+                                             <Button fx:id="menu_removeBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuRemoveBtn" prefHeight="42.0" prefWidth="125.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Remove" />
+                                             <Button fx:id="menu_receiptBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuReceiptBtn" prefHeight="42.0" prefWidth="125.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Receipt" />
+                                          </children>
+                                       </HBox>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+
+                        <AnchorPane fx:id="customers_form" prefHeight="820.0" prefWidth="880.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane fx:id="customers_content" prefHeight="800.0" prefWidth="851.0" stylesheets="@../styles/mainform.css" visible="false" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" prefHeight="46.0" prefWidth="180.0" text="Customers" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+
+                                    <Label layoutX="620.0" layoutY="22.0" text="Search:" />
+                                    <TextField fx:id="customer_search" layoutX="675.0" layoutY="18.0" prefHeight="26.0" prefWidth="161.0" promptText="Search name / phone..." onKeyReleased="#customerSearchChanged" />
+
+                                    <AnchorPane layoutX="14.0" layoutY="70.0" prefHeight="140.0" prefWidth="822.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="70.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                       <children>
+                                          <Label layoutX="20.0" layoutY="20.0" text="Customer Name:" />
+                                          <TextField fx:id="customer_name" layoutX="120.0" layoutY="16.0" prefWidth="220.0" />
+                                          <Label layoutX="390.0" layoutY="20.0" text="Phone:" />
+                                          <TextField fx:id="customer_phone" layoutX="450.0" layoutY="16.0" prefWidth="220.0" />
+                                          <Label layoutX="20.0" layoutY="60.0" text="Notes:" />
+                                          <TextField fx:id="customer_notes" layoutX="120.0" layoutY="56.0" prefWidth="550.0" />
+                                          <Button fx:id="customer_addBtn" layoutX="120.0" layoutY="100.0" mnemonicParsing="false" onAction="#customerAddBtn" prefHeight="32.0" prefWidth="110.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Add" />
+                                          <Button fx:id="customer_updateBtn" layoutX="245.0" layoutY="100.0" mnemonicParsing="false" onAction="#customerUpdateBtn" prefHeight="32.0" prefWidth="110.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Update" />
+                                          <Button fx:id="customer_clearBtn" layoutX="370.0" layoutY="100.0" mnemonicParsing="false" onAction="#customerClearBtn" prefHeight="32.0" prefWidth="110.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Clear" />
+                                          <Button fx:id="customer_deleteBtn" layoutX="495.0" layoutY="100.0" mnemonicParsing="false" onAction="#customerDeleteBtn" prefHeight="32.0" prefWidth="110.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Delete" />
+                                       </children>
+                                    </AnchorPane>
+
+                                    <TableView fx:id="customers_tableView" layoutX="14.0" layoutY="225.0" onMouseClicked="#customerSelectData" prefHeight="210.0" prefWidth="822.0" tableMenuButtonVisible="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="225.0">
+                                       <columns>
+                                          <TableColumn fx:id="customers_col_customerID" prefWidth="110.0" text="ID" />
+                                          <TableColumn fx:id="customers_col_total" prefWidth="220.0" text="Name" />
+                                          <TableColumn fx:id="customers_col_date" prefWidth="220.0" text="Created Date" />
+                                          <TableColumn fx:id="customers_col_cashier" prefWidth="220.0" text="Phone" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+
+                                    <Label fx:id="customer_orders_summary" layoutX="14.0" layoutY="448.0" prefWidth="822.0" text="Orders: 0 | Total Spent: 0.0$ | Last Order: -" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+
+                                    <TableView fx:id="customer_orders_table" layoutX="14.0" layoutY="480.0" prefHeight="210.0" prefWidth="822.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+                                       <columns>
+                                          <TableColumn fx:id="customer_orders_col_id" text="Order ID" prefWidth="140.0" />
+                                          <TableColumn fx:id="customer_orders_col_total" text="Total" prefWidth="180.0" />
+                                          <TableColumn fx:id="customer_orders_col_cashier" text="Cashier" prefWidth="220.0" />
+                                          <TableColumn fx:id="customer_orders_col_date" text="Date" prefWidth="280.0" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+
+                                    <Button fx:id="customer_openReceiptBtn" layoutX="14.0" layoutY="705.0" mnemonicParsing="false" onAction="#customerOpenSelectedReceipt" prefHeight="32.0" prefWidth="180.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Open Selected Receipt" />
+                                 </children>
+                              </AnchorPane>
+
+                              <AnchorPane fx:id="Archive_Of_Receipts_Form" prefHeight="574.0" prefWidth="851.0" stylesheets="@../styles/mainform.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <VBox spacing="14.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                       <Label text="Archive of Receipts">
+                                          <font>
+                                             <Font size="24.0" />
+                                          </font>
+                                       </Label>
+
+                                       <HBox spacing="14.0" VBox.vgrow="ALWAYS">
+                                          <children>
+                                             <VBox spacing="10.0" HBox.hgrow="ALWAYS" prefWidth="520.0">
+                                                <children>
+                                                   <Label prefHeight="30.0" maxWidth="1.7976931348623157E308" styleClass="header" stylesheets="@../styles/mainform.css" text=" Receipts List / Transactions" textFill="WHITE">
+                                                      <font>
+                                                         <Font name="System Bold" size="19.0" />
+                                                      </font>
+                                                   </Label>
+
+                                                   <HBox spacing="10.0">
+                                                      <children>
+                                                         <Label text="Search:" />
+                                                         <TextField fx:id="archive_search" prefWidth="180.0" promptText="Receipt ID / Customer / Cashier" />
+                                                         <Label text="From:" />
+                                                         <TextField fx:id="archive_fromDate" prefWidth="110.0" promptText="2026-04-05" />
+                                                         <Label text="To:" />
+                                                         <TextField fx:id="archive_toDate" prefWidth="110.0" promptText="2026-04-05" />
+                                                         <Button fx:id="archive_filterBtn" mnemonicParsing="false" onAction="#archiveFilterBtn" prefHeight="30.0" prefWidth="90.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Filter" />
+                                                         <Button fx:id="archive_clearFilterBtn" mnemonicParsing="false" onAction="#archiveClearFilterBtn" prefHeight="30.0" prefWidth="90.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Clear" />
+                                                      </children>
+                                                   </HBox>
+
+                                                   <TableView fx:id="tblReceipts" prefHeight="420.0" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                                                      <columns>
+                                                         <TableColumn fx:id="colReceiptId" prefWidth="208.8" text="Receipt ID" />
+                                                         <TableColumn fx:id="colCustomerId" prefWidth="228.8" text="Customer ID" />
+                                                         <TableColumn fx:id="colReceiptDate" prefWidth="204.8" text="Date" />
+                                                         <TableColumn fx:id="colReceiptTotal" prefWidth="185.6" text="Total" />
+                                                         <TableColumn fx:id="colReceiptCashier" prefWidth="185.6" text="Cashier" />
+                                                      </columns>
+                                                      <columnResizePolicy>
+                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                      </columnResizePolicy>
+                                                   </TableView>
+
+                                                   <Button fx:id="archive_printAllReceiptsBtn" mnemonicParsing="false" onAction="#archivePrintAllReceipts" prefHeight="38.0" prefWidth="174.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Print All Receipts" />
+                                                </children>
+                                             </VBox>
+
+                                             <VBox spacing="10.0" prefWidth="360.0" HBox.hgrow="ALWAYS">
+                                                <children>
+                                                   <Label prefHeight="30.0" maxWidth="1.7976931348623157E308" styleClass="header" stylesheets="@../styles/mainform.css" text=" Receipt Details" textFill="WHITE">
+                                                      <font>
+                                                         <Font name="System Bold" size="19.0" />
+                                                      </font>
+                                                   </Label>
+
+                                                   <Label fx:id="details_cashierLabel" text="Cashier : ">
+                                                      <font>
+                                                         <Font name="System Bold" size="16.0" />
+                                                      </font>
+                                                   </Label>
+
+                                                   <TableView fx:id="tblReceiptItems" prefHeight="420.0" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                                                      <columns>
+                                                         <TableColumn fx:id="colItemCustomerId" prefWidth="208.8" text="Customer ID" />
+                                                         <TableColumn fx:id="colItemType" prefWidth="228.8" text="Type" />
+                                                         <TableColumn fx:id="colItemQty" prefWidth="204.8" text="Qty" />
+                                                         <TableColumn fx:id="colItemPrice" prefWidth="185.6" text="Price" />
+                                                      </columns>
+                                                      <columnResizePolicy>
+                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                      </columnResizePolicy>
+                                                   </TableView>
+
+                                                   <Button fx:id="archive_printDetailsBtn" mnemonicParsing="false" onAction="#archivePrintDetails" prefHeight="38.0" prefWidth="174.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Print Details" />
+                                                </children>
+                                             </VBox>
+                                          </children>
+                                       </HBox>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+
+                        <AnchorPane fx:id="users_form" prefHeight="820.0" prefWidth="880.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="286.0" prefWidth="849.0" stylesheets="@../styles/mainform.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="180.0" text="Users">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+
+                                    <Label layoutX="620.0" layoutY="18.0" text="Search:" />
+                                    <TextField fx:id="user_search" layoutX="675.0" layoutY="14.0" prefHeight="26.0" prefWidth="166.0" promptText="Search username / role..." onKeyReleased="#userSearchChanged" />
+
+                                    <TableView fx:id="users_tableView" layoutX="12.0" layoutY="50.0" onMouseClicked="#userSelectData" prefHeight="222.0" prefWidth="829.0" stylesheets="@../styles/mainform.css" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="50.0">
+                                       <columns>
+                                          <TableColumn fx:id="users_col_id" prefWidth="90.0" text="ID" />
+                                          <TableColumn fx:id="users_col_username" prefWidth="170.0" text="Username" />
+                                          <TableColumn fx:id="users_col_role" prefWidth="120.0" text="Role" />
+                                          <TableColumn fx:id="users_col_status" prefWidth="120.0" text="Status" />
+                                          <TableColumn fx:id="users_col_createdAt" prefWidth="260.0" text="Created At" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+
+                              <AnchorPane layoutX="15.0" layoutY="326.0" prefHeight="260.0" prefWidth="850.0" stylesheets="@../styles/mainform.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="326.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="22.0" layoutY="35.0" text="Username:" />
+                                    <TextField fx:id="user_username" layoutX="112.0" layoutY="31.0" prefHeight="26.0" prefWidth="220.0" />
+
+                                    <Label layoutX="30.0" layoutY="69.0" text="Password:" />
+                                    <PasswordField fx:id="user_password" layoutX="112.0" layoutY="64.0" prefHeight="26.0" prefWidth="220.0" />
+
+                                    <Label layoutX="66.0" layoutY="103.0" text="Role:" />
+                                    <ComboBox fx:id="user_role" layoutX="112.0" layoutY="98.0" prefHeight="26.0" prefWidth="220.0" promptText="Choose role..." />
+
+                                    <Label layoutX="385.0" layoutY="35.0" text="Question:" />
+                                    <ComboBox fx:id="user_question" layoutX="450.0" layoutY="31.0" prefHeight="26.0" prefWidth="250.0" promptText="Choose question..." />
+
+                                    <Label layoutX="395.0" layoutY="69.0" text="Answer:" />
+                                    <TextField fx:id="user_answer" layoutX="450.0" layoutY="64.0" prefHeight="26.0" prefWidth="250.0" />
+
+                                    <Label layoutX="450.0" layoutY="104.0" prefWidth="320.0" text="Create: fill all fields | Role/Status update: select a user" style="-fx-font-size: 11px; -fx-text-fill: #555;" />
+
+                                    <Button fx:id="user_addBtn" layoutX="112.0" layoutY="191.0" mnemonicParsing="false" onAction="#userAddBtn" prefHeight="38.0" prefWidth="130.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Create User" />
+                                    <Button fx:id="user_roleBtn" layoutX="258.0" layoutY="191.0" mnemonicParsing="false" onAction="#userUpdateRoleBtn" prefHeight="38.0" prefWidth="130.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Update Role" />
+                                    <Button fx:id="user_toggleBtn" layoutX="404.0" layoutY="191.0" mnemonicParsing="false" onAction="#userToggleBtn" prefHeight="38.0" prefWidth="130.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Enable / Disable" />
+                                    <Button fx:id="user_clearBtn" layoutX="550.0" layoutY="191.0" mnemonicParsing="false" onAction="#userClearBtn" prefHeight="38.0" prefWidth="130.0" styleClass="btn" stylesheets="@../styles/mainform.css" text="Clear" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
