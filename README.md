@@ -790,3 +790,85 @@ Handled cases include:
 - keyboard shortcuts for cashier workflow
 - more polished reports
 - additional analytics screens
+
+
+
+## Screenshots
+
+### Register Screen
+![Register Screen](register1.png)
+
+### Register Validation
+![Register Validation](register2.png)
+
+### Register Success
+![Register Success](register3.png)
+
+### Login Screen
+![Login Screen](login1.png)
+
+### Forgot Password - Step 1
+![Forgot Password 1](forgetpassword1.png)
+
+### Forgot Password - Step 2
+![Forgot Password 2](forgetpassword2.png)
+
+### Forgot Password - Step 3
+![Forgot Password 3](forgetpassword3.png)
+
+### Forgot Password - Step 4
+![Forgot Password 4](forgetpassword4.png)
+
+### Forgot Password - Step 5
+![Forgot Password 5](forgetpassword5.png)
+
+### Admin Dashboard
+![Admin Dashboard](adminDashboard1.png)
+
+### Add Category
+![Add Category](addCategory.png)
+
+### Add Customer
+![Add Customer](addcustomer.png)
+
+### Add Product
+![Add Product](addProduct.png)
+
+### Create User
+![Create User](Creatuser.png)
+
+### Cashier Privileges
+![Cashier Privileges](Cashierprivileges.png)
+
+### Disable Admin Protection
+![Disable Admin Protection](disableadmin.png)
+
+### Archive of Receipts
+![Archive of Receipts](archieveofreceipts.png)
+
+### Update User Role
+![Update User Role](updaterole.png)
+
+### Show Selected Receipt
+![Show Selected Receipt](showselectedreciept.png)
+
+### Menu / POS
+![Menu / POS](menuadmin1.png)
+
+### Menu Workflow
+![Menu Workflow 2](menuadmin2.png)
+
+### Menu Workflow
+![Menu Workflow 3](menuadmin3.png)
+
+### Menu Workflow
+![Menu Workflow 4](menuadmin4.png)
+
+### Menu Workflow
+![Menu Workflow 5](menuadmin5.png)
+
+### Delete Order from Menu
+![Delete Order from Menu](menuadmin6deleteorder.png)
+
+### Logout
+![Logout](logout.png)
